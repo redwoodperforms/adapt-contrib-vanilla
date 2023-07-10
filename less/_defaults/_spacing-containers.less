@@ -3,11 +3,17 @@
 @device-width-small: unit(@adapt-device-small, rem);
 @device-width-medium: unit(@adapt-device-medium, rem);
 @device-width-large: unit(@adapt-device-large, rem);
+@device-width-xlarge: unit(@adapt-device-xlarge, rem);
 
 @max-width: 90rem;
 
+@max-content-width: @device-width-large;
+@max-page-width: @max-width;
+
 // Navigation height
 // --------------------------------------------------
+// Deprecated @navigation-height: Navigation height is now set
+// by --adapt-navigation-height and is updated by JS
 @navigation-height: @icon-size + (@icon-padding * 2);
 
 // Menu container and header padding
@@ -40,6 +46,7 @@
 
 // Component padding
 // --------------------------------------------------
+@component-padding-ver: .5rem;
 @component-padding-hoz: .5rem;
 
 // Notify padding

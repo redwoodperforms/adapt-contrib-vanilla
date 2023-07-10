@@ -37,7 +37,7 @@
 
 @instruction-size: @body-size;
 @instruction-family: @body-family;
-@instruction-weight: @font-weight-regular;
+@instruction-weight: @font-weight-bold;
 @instruction-line-height: @body-line-height;
 @instruction-font-style: normal;
 
@@ -53,6 +53,10 @@
 @link-family: @body-family;
 @link-weight: @font-weight-regular;
 @link-line-height: @body-line-height;
+
+// Navigation
+// --------------------------------------------------
+@nav-btn-label-size: 0.875rem;
 
 // Menu header
 // --------------------------------------------------
@@ -76,9 +80,9 @@
 @menu-body-line-height: @body-line-height;
 
 @menu-instruction-size: @menu-body-size;
-@menu-instruction-family: @body-family;
-@menu-instruction-weight: @font-weight-regular;
-@menu-instruction-line-height: @body-line-height;
+@menu-instruction-family: @menu-body-family;
+@menu-instruction-weight: @instruction-weight;
+@menu-instruction-line-height: @menu-body-line-height;
 @menu-instruction-font-style: @instruction-font-style;
 
 // Menu item
@@ -116,9 +120,9 @@
 @page-body-line-height: @body-line-height;
 
 @page-instruction-size: @page-body-size;
-@page-instruction-family: @body-family;
-@page-instruction-weight: @font-weight-regular;
-@page-instruction-line-height: @body-line-height;
+@page-instruction-family: @page-body-family;
+@page-instruction-weight: @instruction-weight;
+@page-instruction-line-height: @page-body-line-height;
 @page-instruction-font-style: @instruction-font-style;
 
 // Page
@@ -151,25 +155,39 @@
 @notify-title-mobile-percentage: .75;
 @notify-title-letter-spacing: normal;
 
+// Components
+// --------------------------------------------------
 @item-title-size: 1.25rem;
 @item-title-family: @title-family;
 @item-title-weight: @font-weight-regular;
 @item-title-line-height: @title-line-height;
 @item-title-letter-spacing: normal;
 
+// Quote
+// --------------------------------------------------
+@quote-body-size: @body-size * 1.25;
+@quote-body-family: @body-family;
+@quote-body-weight: @font-weight-regular;
+@quote-body-line-height: @body-line-height;
+@quote-body-font-style: normal;
+@quote-body-letter-spacing: normal;
+
+@quote-attribution-size: @body-size;
+@quote-attribution-family: @body-family;
+@quote-attribution-weight: @font-weight-regular;
+@quote-attribution-line-height: @body-line-height;
+@quote-attribution-font-style: normal;
+@quote-attribution-letter-spacing: normal;
+
 // Pull quote
 // --------------------------------------------------
-@pull-quote-title-size: 1.25rem;
-@pull-quote-title-family: @title-family;
-@pull-quote-title-weight: @font-weight-regular;
-@pull-quote-title-line-height: @title-line-height;
-@pull-quote-font-style: italic;
-@pull-quote-letter-spacing: normal;
-
-@pull-quote-body-size: 1rem;
+@pull-quote-body-size: @body-size * 2;
 @pull-quote-body-family: @body-family;
 @pull-quote-body-weight: @font-weight-bold;
 @pull-quote-body-line-height: @body-line-height;
+@pull-quote-body-font-style: normal;
+@pull-quote-body-letter-spacing: normal;
+@pull-quote-body-mobile-percentage: .75;
 
 // Drawer
 // --------------------------------------------------

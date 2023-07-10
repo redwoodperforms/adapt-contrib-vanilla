@@ -19,12 +19,13 @@ export default class ThemeView extends Backbone.View {
 
   remove() {
     super.remove();
-
     this.onRemove();
   }
 
   setStyles() {
     this.setClasses();
+    this.setTextAlignment();
+    this.addBackgroundLayer();
     this.setBackgroundImage();
     this.setBackgroundStyles();
     this.setMinimumHeight();
@@ -36,42 +37,34 @@ export default class ThemeView extends Backbone.View {
     this.$el.addClass(this.className());
   }
 
+  setTextAlignment() {
+    const textAlignment = this.model.get('_textAlignment');
+    if (!textAlignment) return;
+
+    if (textAlignment._title) this.$el.addClass(`title-align-${textAlignment._title}`);
+    if (textAlignment._body) this.$el.addClass(`body-align-${textAlignment._body}`);
+    if (textAlignment._instruction) this.$el.addClass(`instruction-align-${textAlignment._instruction}`);
+  }
+
+  addBackgroundLayer() {
+    if (this.$el.find(' > .background').length) return;
+    this.$background = $('<div class="background" aria-hidden="true"></div>')
+      .prependTo(this.$el);
+  }
+
   setBackgroundImage() {
     const backgroundImages = this.model.get('_backgroundImage');
-
     if (!backgroundImages) return;
-
-    let backgroundImage;
-
-    switch (Adapt.device.screenSize) {
-      case 'large':
-        backgroundImage = backgroundImages._large;
-        break;
-      case 'medium':
-        backgroundImage = backgroundImages._medium;
-        break;
-      default:
-        backgroundImage = backgroundImages._small;
-    }
-
-    if (backgroundImage) {
-      this.$el
-        .addClass('has-bg-image')
-        .css('background-image', 'url(' + backgroundImage + ')');
-      return;
-    }
-
-    this.$el
-      .removeClass('has-bg-image')
-      .css('background-image', '');
+    const backgroundImage = backgroundImages[`_${Adapt.device.screenSize}`] ?? backgroundImages._small;
+    this.$el.toggleClass('has-bg-image', Boolean(backgroundImage));
+    this.$background
+      .css('background-image', backgroundImage ? 'url(' + backgroundImage + ')' : '');
   }
 
   setBackgroundStyles() {
     const styles = this.model.get('_backgroundStyles');
-
     if (!styles) return;
-
-    this.$el.css({
+    this.$background.css({
       'background-repeat': styles._backgroundRepeat,
       'background-size': styles._backgroundSize,
       'background-position': styles._backgroundPosition
@@ -80,32 +73,12 @@ export default class ThemeView extends Backbone.View {
 
   setMinimumHeight() {
     const minimumHeights = this.model.get('_minimumHeights');
-
     if (!minimumHeights) return;
 
-    let minimumHeight;
-
-    switch (Adapt.device.screenSize) {
-      case 'large':
-        minimumHeight = minimumHeights._large;
-        break;
-      case 'medium':
-        minimumHeight = minimumHeights._medium;
-        break;
-      default:
-        minimumHeight = minimumHeights._small;
-    }
-
-    if (minimumHeight) {
-      this.$el
-        .addClass('has-min-height')
-        .css('min-height', minimumHeight + 'px');
-      return;
-    }
-
+    const minimumHeight = minimumHeights[`_${Adapt.device.screenSize}`] ?? minimumHeights._small;
     this.$el
-      .removeClass('has-min-height')
-      .css('min-height', '');
+      .toggleClass('has-min-height', Boolean(minimumHeight))
+      .css('min-height', minimumHeight ? minimumHeight + 'px' : '');
   }
 
   setResponsiveClasses() {

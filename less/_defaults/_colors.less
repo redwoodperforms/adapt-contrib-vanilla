@@ -1,5 +1,6 @@
 // Colour definitions
 // --------------------------------------------------
+
 @blue:#B32126; 
 @blueDark: #630B11;
 @grey: #F5f5f5;
@@ -13,6 +14,10 @@
 @secondary-color:@blueDark;
 
 @primary-color-inverted:@white;
+
+@greyDark: #4D4D4D;
+@greyLight: #f9f9f9;
+
 
 // These variables are used to change the colour of text
 // Primary use is for altering the text colour over a background image
@@ -31,7 +36,11 @@
 
 // Body, link, and heading colour
 // --------------------------------------------------
+
 @font-color: @black;
+
+@body-background-color: @white;
+
 @font-color-inverted: @white;
 
 
@@ -101,6 +110,11 @@
 
 // Menu
 // --------------------------------------------------
+@menu-header-background-color: transparent;
+@menu-header-title-color: @heading-color;
+@menu-header-body-color: @font-color;
+@menu-header-instruction-color: @font-color;
+
 @menu-item: @white;
 @menu-item-inverted: @font-color;
 @menu-item-border-color: @item-color;
@@ -149,10 +163,10 @@
 @notify-btn-hover: darken(@notify-btn, 10%);
 @notify-btn-inverted-hover: @notify-btn-inverted;
 
-@notify-icon: @notify;
+@notify-icon: darken(@notify, 10%);
 @notify-icon-inverted: @notify-inverted;
 
-@notify-icon-hover: darken(@notify-icon, 10%);
+@notify-icon-hover: darken(@notify, 15%);
 @notify-icon-inverted-hover: @notify-icon-inverted;
 
 // Drawer
@@ -178,6 +192,7 @@
 
 @drawer-item-selected: darken(@drawer-item, 20%);
 @drawer-item-inverted-selected: @drawer-item-inverted;
+@drawer-item-selected-underline: @drawer-item-inverted;
 
 @drawer-progress: @drawer-item-inverted;
 @drawer-progress-inverted: @drawer-item;
@@ -186,6 +201,12 @@
 @drawer-progress-hover: @drawer-item-inverted-hover;
 @drawer-progress-inverted-hover: @drawer-item-hover;
 @drawer-progress-border-hover: @drawer-progress-border;
+
+// Pull quote
+// --------------------------------------------------
+@pull-quote: @greyLight;
+@pull-quote-inverted: @font-color;
+@pull-quote-border: @blue;
 
 // Background
 // --------------------------------------------------
@@ -196,3 +217,4 @@
 // --------------------------------------------------
 @shadow: @black;
 @shadow-inverted: @white;
+@shadow-opacity: 50%;

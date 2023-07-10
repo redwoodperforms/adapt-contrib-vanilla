@@ -275,6 +275,30 @@
         "required": false,
         "title": "Menu",
         "properties": {
+          "menu-header-background-color": {
+            "title": "Menu header background colour",
+            "type": "string",
+            "inputType": "ColourPicker",
+            "default": ""
+          },
+          "menu-header-title-color": {
+            "title": "Menu header title colour",
+            "type": "string",
+            "inputType": "ColourPicker",
+            "default": ""
+          },
+          "menu-header-body-color": {
+            "title": "Menu header body colour",
+            "type": "string",
+            "inputType": "ColourPicker",
+            "default": ""
+          },
+          "menu-header-instruction-color": {
+            "title": "Menu header instruction colour",
+            "type": "string",
+            "inputType": "ColourPicker",
+            "default": ""
+          },
           "menu-item": {
             "title": "Menu item colour",
             "type": "string",
@@ -698,7 +722,30 @@
           "type": "object"
         },
         "course": {
-          "type": "object"
+          "type": "object",
+          "properties": {
+            "_vanilla": {
+              "type": "object",
+              "required": false,
+              "properties": {
+                "_favIcon": {
+                  "type": "object",
+                  "required": false,
+                  "legend": "FavIcon",
+                  "properties": {
+                    "_src": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "inputType": "Asset:image",
+                      "validators": [],
+                      "help": "Select a favicon to improve user experience and enforce brand consistency. This will be displayed in places like your browser's address bar, page tabs and bookmarks menu. Usually, a favicon is 16 x 16 pixels in size and stored in the GIF, PNG, or ICO file format."
+                    }
+                  }
+                }
+              }
+            }
+          }
         },
         "contentobject": {
           "type": "object",
@@ -712,13 +759,21 @@
                   "required": false,
                   "legend": "Page background image",
                   "properties": {
+                    "_xlarge": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "inputType": "Asset:image",
+                      "validators": [],
+                      "help": "Extra large background image, e.g. hd laptop/desktop computers"
+                    },
                     "_large": {
                       "type": "string",
                       "required": false,
                       "default": "",
                       "inputType": "Asset:image",
                       "validators": [],
-                      "help": "Large background image - used on desktop"
+                      "help": "Large background image, e.g. laptop/desktop computers"
                     },
                     "_medium": {
                       "type": "string",
@@ -726,7 +781,7 @@
                       "default": "",
                       "inputType": "Asset:image",
                       "validators": [],
-                      "help": "Medium background image - used on tablet"
+                      "help": "Medium background image, e.g. tablet devices"
                     },
                     "_small": {
                       "type": "string",
@@ -734,7 +789,7 @@
                       "default": "",
                       "inputType": "Asset:image",
                       "validators": [],
-                      "help": "Small background image - used on mobile"
+                      "help": "Small background image, e.g. mobile / cellphones"
                     }
                   }
                 },
@@ -774,13 +829,21 @@
                   "required": false,
                   "legend": "Responsive classes",
                   "properties": {
+                    "_xlarge": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "inputType": "Text",
+                      "validators": [],
+                      "help": "Extra large CSS class, e.g. hd laptop/desktop computers"
+                    },
                     "_large": {
                       "type": "string",
                       "required": false,
                       "default": "",
                       "inputType": "Text",
                       "validators": [],
-                      "help": "Large CSS class - used on desktop"
+                      "help": "Large CSS class, e.g. laptop/desktop computers"
                     },
                     "_medium": {
                       "type": "string",
@@ -788,7 +851,7 @@
                       "default": "",
                       "inputType": "Text",
                       "validators": [],
-                      "help": "Medium CSS class - used on tablet"
+                      "help": "Medium CSS class, e.g. tablet devices"
                     },
                     "_small": {
                       "type": "string",
@@ -796,7 +859,7 @@
                       "default": "",
                       "inputType": "Text",
                       "validators": [],
-                      "help": "Small CSS class - used on mobile"
+                      "help": "Small CSS class, e.g. mobile / cellphones"
                     }
                   }
                 },
@@ -804,18 +867,57 @@
                   "type": "object",
                   "required": false,
                   "properties": {
+                    "_textAlignment": {
+                      "type": "object",
+                      "required": false,
+                      "legend": "Text alignment",
+                      "properties": {
+                        "_title": {
+                          "type": "string",
+                          "required": false,
+                          "default": "",
+                          "inputType": {"type":"Select", "options":["","left","center","right"]},
+                          "title": "Title alignment",
+                          "help": "Set the alignment of the page title. Left: Aligns the title to the left of the container. Center: Aligns the title to the center of the container. Right: Aligns the title to the right of the container. The alignment automatically inverses for right-to-left languages. The default is `` which inherits the natural page direction."
+                        },
+                        "_body": {
+                          "type": "string",
+                          "required": false,
+                          "default": "",
+                          "inputType": {"type":"Select", "options":["","left","center","right"]},
+                          "title": "Body alignment",
+                          "help": "Set the alignment of the page body. Left: Aligns the body to the left of the container. Center: Aligns the body to the center of the container. Right: Aligns the body to the right of the container. The alignment automatically inverses for right-to-left languages. The default is `` which inherits the natural page direction."
+                        },
+                        "_instruction": {
+                          "type": "string",
+                          "required": false,
+                          "default": "",
+                          "inputType": {"type":"Select", "options":["","left","center","right"]},
+                          "title": "Instruction alignment",
+                          "help": "Set the alignment of the page instruction. Left: Aligns the instruction to the left of the container. Center: Aligns the instruction to the center of the container. Right: Aligns the instruction to the right of the container. The alignment automatically inverses for right-to-left languages. The default is `` which inherits the natural page direction."
+                        }
+                      }
+                    },
                     "_backgroundImage": {
                       "type": "object",
                       "required": false,
                       "legend": "Page header background image",
                       "properties": {
+                        "_xlarge": {
+                          "type": "string",
+                          "required": false,
+                          "default": "",
+                          "inputType": "Asset:image",
+                          "validators": [],
+                          "help": "Extra large background image, e.g. hd laptop/desktop computers"
+                        },
                         "_large": {
                           "type": "string",
                           "required": false,
                           "default": "",
                           "inputType": "Asset:image",
                           "validators": [],
-                          "help": "Large background image - used on desktop"
+                          "help": "Large background image, e.g. laptop/desktop computers"
                         },
                         "_medium": {
                           "type": "string",
@@ -823,7 +925,7 @@
                           "default": "",
                           "inputType": "Asset:image",
                           "validators": [],
-                          "help": "Medium background image - used on tablet"
+                          "help": "Medium background image, e.g. tablet devices"
                         },
                         "_small": {
                           "type": "string",
@@ -831,7 +933,7 @@
                           "default": "",
                           "inputType": "Asset:image",
                           "validators": [],
-                          "help": "Small background image - used on mobile"
+                          "help": "Small background image, e.g. mobile / cellphones"
                         }
                       }
                     },
@@ -871,13 +973,21 @@
                       "required": false,
                       "legend": "Page header minimum height",
                       "properties": {
+                        "_xlarge": {
+                          "type": "number",
+                          "required": false,
+                          "default": "",
+                          "inputType": "Number",
+                          "validators": ["number"],
+                          "help": "Minimum height should only be used in instances where the page header height needs to be greater than the content e.g. to prevent a background image being cropped. For e.g. hd laptop/desktop computers"
+                        },
                         "_large": {
                           "type": "number",
                           "required": false,
                           "default": "",
                           "inputType": "Number",
                           "validators": ["number"],
-                          "help": "Minimum height should only be used in instances where the page header height needs to be greater than the content e.g. to prevent a background image being cropped"
+                          "help": "Minimum height should only be used in instances where the page header height needs to be greater than the content e.g. to prevent a background image being cropped. For e.g. laptop/desktop computers"
                         },
                         "_medium": {
                           "type": "number",
@@ -885,7 +995,7 @@
                           "default": "",
                           "inputType": "Number",
                           "validators": ["number"],
-                          "help": "Minimum height should only be used in instances where the page header height needs to be greater than the content e.g. to prevent a background image being cropped"
+                          "help": "Minimum height should only be used in instances where the page header height needs to be greater than the content e.g. to prevent a background image being cropped. For e.g. tablet devices"
                         },
                         "_small": {
                           "type": "number",
@@ -893,7 +1003,7 @@
                           "default": "",
                           "inputType": "Number",
                           "validators": ["number"],
-                          "help": "Minimum height should only be used in instances where the page header height needs to be greater than the content e.g. to prevent a background image being cropped"
+                          "help": "Minimum height should only be used in instances where the page header height needs to be greater than the content e.g. to prevent a background image being cropped. For e.g. mobile / cellphones"
                         }
                       }
                     }
@@ -910,18 +1020,57 @@
               "type": "object",
               "required": false,
               "properties": {
+                "_textAlignment": {
+                  "type": "object",
+                  "required": false,
+                  "legend": "Text alignment",
+                  "properties": {
+                    "_title": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "inputType": {"type":"Select", "options":["","left","center","right"]},
+                      "title": "Title alignment",
+                      "help": "Set the alignment of the article title. Left: Aligns the title to the left of the container. Center: Aligns the title to the center of the container. Right: Aligns the title to the right of the container. The alignment automatically inverses for right-to-left languages. The default is `` which inherits the natural page direction."
+                    },
+                    "_body": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "inputType": {"type":"Select", "options":["","left","center","right"]},
+                      "title": "Body alignment",
+                      "help": "Set the alignment of the article body. Left: Aligns the body to the left of the container. Center: Aligns the body to the center of the container. Right: Aligns the body to the right of the container. The alignment automatically inverses for right-to-left languages. The default is `` which inherits the natural page direction."
+                    },
+                    "_instruction": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "inputType": {"type":"Select", "options":["","left","center","right"]},
+                      "title": "Instruction alignment",
+                      "help": "Set the alignment of the article instruction. Left: Aligns the instruction to the left of the container. Center: Aligns the instruction to the center of the container. Right: Aligns the instruction to the right of the container. The alignment automatically inverses for right-to-left languages. The default is `` which inherits the natural page direction."
+                    }
+                  }
+                },
                 "_backgroundImage": {
                   "type": "object",
                   "required": false,
                   "legend": "Article background image",
                   "properties": {
+                    "_xlarge": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "inputType": "Asset:image",
+                      "validators": [],
+                      "help": "Extra large background image, e.g. hd laptop/desktop computers"
+                    },
                     "_large": {
                       "type": "string",
                       "required": false,
                       "default": "",
                       "inputType": "Asset:image",
                       "validators": [],
-                      "help": "Large background image - used on desktop"
+                      "help": "Large background image, e.g. laptop/desktop computers"
                     },
                     "_medium": {
                       "type": "string",
@@ -929,7 +1078,7 @@
                       "default": "",
                       "inputType": "Asset:image",
                       "validators": [],
-                      "help": "Medium background image - used on tablet"
+                      "help": "Medium background image, e.g. tablet devices"
                     },
                     "_small": {
                       "type": "string",
@@ -937,7 +1086,7 @@
                       "default": "",
                       "inputType": "Asset:image",
                       "validators": [],
-                      "help": "Small background image - used on mobile"
+                      "help": "Small background image, e.g. mobile / cellphones"
                     }
                   }
                 },
@@ -977,13 +1126,21 @@
                   "required": false,
                   "legend": "Responsive classes",
                   "properties": {
+                    "_xlarge": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "inputType": "Text",
+                      "validators": [],
+                      "help": "Extra large CSS class, e.g. hd laptop/desktop computers"
+                    },
                     "_large": {
                       "type": "string",
                       "required": false,
                       "default": "",
                       "inputType": "Text",
                       "validators": [],
-                      "help": "Large CSS class - used on desktop"
+                      "help": "Large CSS class, e.g. laptop/desktop computers"
                     },
                     "_medium": {
                       "type": "string",
@@ -991,7 +1148,7 @@
                       "default": "",
                       "inputType": "Text",
                       "validators": [],
-                      "help": "Medium CSS class - used on tablet"
+                      "help": "Medium CSS class, e.g. tablet devices"
                     },
                     "_small": {
                       "type": "string",
@@ -999,7 +1156,7 @@
                       "default": "",
                       "inputType": "Text",
                       "validators": [],
-                      "help": "Small CSS class - used on mobile"
+                      "help": "Small CSS class, e.g. mobile / cellphones"
                     }
                   }
                 }
@@ -1014,18 +1171,57 @@
               "type": "object",
               "required": false,
               "properties": {
+                "_textAlignment": {
+                  "type": "object",
+                  "required": false,
+                  "legend": "Text alignment",
+                  "properties": {
+                    "_title": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "inputType": {"type":"Select", "options":["","left","center","right"]},
+                      "title": "Title alignment",
+                      "help": "Set the alignment of the block title. Left: Aligns the title to the left of the container. Center: Aligns the title to the center of the container. Right: Aligns the title to the right of the container. The alignment automatically inverses for right-to-left languages. The default is `` which inherits the natural page direction."
+                    },
+                    "_body": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "inputType": {"type":"Select", "options":["","left","center","right"]},
+                      "title": "Body alignment",
+                      "help": "Set the alignment of the block body. Left: Aligns the body to the left of the container. Center: Aligns the body to the center of the container. Right: Aligns the body to the right of the container. The alignment automatically inverses for right-to-left languages. The default is `` which inherits the natural page direction."
+                    },
+                    "_instruction": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "inputType": {"type":"Select", "options":["","left","center","right"]},
+                      "title": "Instruction alignment",
+                      "help": "Set the alignment of the block instruction. Left: Aligns the instruction to the left of the container. Center: Aligns the instruction to the center of the container. Right: Aligns the instruction to the right of the container. The alignment automatically inverses for right-to-left languages. The default is `` which inherits the natural page direction."
+                    }
+                  }
+                },
                 "_backgroundImage": {
                   "type": "object",
                   "required": false,
                   "legend": "Block background image",
                   "properties": {
+                    "_xlarge": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "inputType": "Asset:image",
+                      "validators": [],
+                      "help": "Extra large background image, e.g. hd laptop/desktop computers"
+                    },
                     "_large": {
                       "type": "string",
                       "required": false,
                       "default": "",
                       "inputType": "Asset:image",
                       "validators": [],
-                      "help": "Large background image - used on desktop"
+                      "help": "Large background image, e.g. laptop/desktop computers"
                     },
                     "_medium": {
                       "type": "string",
@@ -1033,7 +1229,7 @@
                       "default": "",
                       "inputType": "Asset:image",
                       "validators": [],
-                      "help": "Medium background image - used on tablet"
+                      "help": "Medium background image, e.g. tablet devices"
                     },
                     "_small": {
                       "type": "string",
@@ -1041,7 +1237,7 @@
                       "default": "",
                       "inputType": "Asset:image",
                       "validators": [],
-                      "help": "Small background image - used on mobile"
+                      "help": "Small background image, e.g. mobile / cellphones"
                     }
                   }
                 },
@@ -1081,13 +1277,21 @@
                   "required": false,
                   "legend": "Block minimum height",
                   "properties": {
+                    "_xlarge": {
+                      "type": "number",
+                      "required": false,
+                      "default": "",
+                      "inputType": "Number",
+                      "validators": ["number"],
+                      "help": "Minimum height should only be used in instances where the block height needs to be greater than the content e.g. to prevent a background image being cropped. For e.g. hd laptop/desktop computers"
+                    },
                     "_large": {
                       "type": "number",
                       "required": false,
                       "default": "",
                       "inputType": "Number",
                       "validators": ["number"],
-                      "help": "Minimum height should only be used in instances where the block height needs to be greater than the content e.g. to prevent a background image being cropped"
+                      "help": "Minimum height should only be used in instances where the block height needs to be greater than the content e.g. to prevent a background image being cropped. For e.g. laptop/desktop computers"
                     },
                     "_medium": {
                       "type": "number",
@@ -1095,7 +1299,7 @@
                       "default": "",
                       "inputType": "Number",
                       "validators": ["number"],
-                      "help": "Minimum height should only be used in instances where the block height needs to be greater than the content e.g. to prevent a background image being cropped"
+                      "help": "Minimum height should only be used in instances where the block height needs to be greater than the content e.g. to prevent a background image being cropped. For e.g. tablet devices"
                     },
                     "_small": {
                       "type": "number",
@@ -1103,7 +1307,7 @@
                       "default": "",
                       "inputType": "Number",
                       "validators": ["number"],
-                      "help": "Minimum height should only be used in instances where the block height needs to be greater than the content e.g. to prevent a background image being cropped"
+                      "help": "Minimum height should only be used in instances where the block height needs to be greater than the content e.g. to prevent a background image being cropped. For e.g. mobile / cellphones"
                     }
                   }
                 },
@@ -1112,13 +1316,21 @@
                   "required": false,
                   "legend": "Responsive classes",
                   "properties": {
+                    "_xlarge": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "inputType": "Text",
+                      "validators": [],
+                      "help": "Extra large CSS class, e.g. hd laptop/desktop computers"
+                    },
                     "_large": {
                       "type": "string",
                       "required": false,
                       "default": "",
                       "inputType": "Text",
                       "validators": [],
-                      "help": "Large CSS class - used on desktop"
+                      "help": "Large CSS class, e.g. laptop/desktop computers"
                     },
                     "_medium": {
                       "type": "string",
@@ -1126,7 +1338,7 @@
                       "default": "",
                       "inputType": "Text",
                       "validators": [],
-                      "help": "Medium CSS class - used on tablet"
+                      "help": "Medium CSS class, e.g. tablet devices"
                     },
                     "_small": {
                       "type": "string",
@@ -1134,7 +1346,7 @@
                       "default": "",
                       "inputType": "Text",
                       "validators": [],
-                      "help": "Small CSS class - used on mobile"
+                      "help": "Small CSS class, e.g. mobile / cellphones"
                     }
                   }
                 },
@@ -1146,13 +1358,84 @@
                   "inputType": "Checkbox",
                   "validators": [],
                   "help": "If enabled, applies a divider class to the block"
+                },
+                "_paddingTop": {
+                  "type": "string",
+                  "required": false,
+                  "default": "standard",
+                  "inputType": {"type":"Select", "options":["double","standard","half","remove"]},
+                  "title": "Spacing top",
+                  "help": "Changes the value of the blocks top spacing. Double: Doubles the blocks top spacing. Standard: Retains the standard blocks top spacing. Half: Halves the blocks top spacing. Remove: Removes the blocks top spacing. The default value is `standard`."
+                },
+                "_paddingBottom": {
+                  "type": "string",
+                  "required": false,
+                  "default": "standard",
+                  "inputType": {"type":"Select", "options":["double","standard","half","remove"]},
+                  "title": "Spacing bottom",
+                  "help": "Changes the value of the blocks bottom spacing. Double: Doubles the blocks bottom spacing. Standard: Retains the standard blocks bottom spacing. Half: Halves the blocks bottom spacing. Remove: Removes the blocks bottom spacing. The default value is `standard`."
+                },
+                "_componentVerticalAlignment": {
+                  "type": "string",
+                  "required": false,
+                  "default": "top",
+                  "inputType": {"type":"Select", "options":["top","center","bottom"]},
+                  "title": "Set the vertical alignment of the child component(s)",
+                  "help": "Defines the vertical alignment of the child component(s) in relation to the block. Top: Aligns descendents to the top of the block. Center: Aligns descendents to the center of the block. Bottom: Aligns descendents to the bottom of the block. The default alignment is `top`."
+                },
+                "_componentHorizontalAlignment": {
+                  "type": "string",
+                  "required": false,
+                  "default": "left",
+                  "inputType": {"type":"Select", "options":["left","center","right"]},
+                  "title": "Set the horizontal alignment of the child component(s)",
+                  "help": "Defines the horizontal alignment of the child component(s) in relation to the block. The default alignment is `left`."
                 }
               }
             }
           }
         },
         "component": {
-          "type": "object"
+          "type": "object",
+          "properties": {
+            "_vanilla": {
+              "type": "object",
+              "required": false,
+              "properties": {
+                "_textAlignment": {
+                  "type": "object",
+                  "required": false,
+                  "legend": "Text alignment",
+                  "properties": {
+                    "_title": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "inputType": {"type":"Select", "options":["","left","center","right"]},
+                      "title": "Title alignment",
+                      "help": "Set the alignment of the component title. Left: Aligns the title to the left of the container. Center: Aligns the title to the center of the container. Right: Aligns the title to the right of the container. The alignment automatically inverses for right-to-left languages. The default is `` which inherits the natural page direction."
+                    },
+                    "_body": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "inputType": {"type":"Select", "options":["","left","center","right"]},
+                      "title": "Body alignment",
+                      "help": "Set the alignment of the component body. Left: Aligns the body to the left of the container. Center: Aligns the body to the center of the container. Right: Aligns the body to the right of the container. The alignment automatically inverses for right-to-left languages. The default is `` which inherits the natural page direction."
+                    },
+                    "_instruction": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "inputType": {"type":"Select", "options":["","left","center","right"]},
+                      "title": "Instruction alignment",
+                      "help": "Set the alignment of the component instruction. Left: Aligns the instruction to the left of the container. Center: Aligns the instruction to the center of the container. Right: Aligns the instruction to the right of the container. The alignment automatically inverses for right-to-left languages. The default is `` which inherits the natural page direction."
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
