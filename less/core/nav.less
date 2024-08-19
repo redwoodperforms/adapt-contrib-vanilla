@@ -30,6 +30,7 @@
       // }
   }
 
+
   .navigation-logo{
     flex: auto;
     text-align: left;
@@ -44,9 +45,15 @@
       }
     }
 
+  &__inner {
+    padding-left: @nav-btn-margin / 2;
+    padding-right: @nav-btn-margin / 2;
+  }
   &__btn {
+    margin: @nav-btn-margin (@nav-btn-margin / 2);
     background-color: @nav-icon;
     color: @nav-icon-inverted;
+    border-radius: @nav-btn-border-radius;
 
     .no-touch &:hover {
       background-color: @nav-icon-hover;
